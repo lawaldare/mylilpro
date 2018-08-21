@@ -88,7 +88,11 @@ let Question10 = prompt("What pulls you down and never lets go?");
     } else {
       alert("Sorry, that's wrong, the answer is: gravity");
     };
- alert(`Mr ${firstName} ${lastName} Your total score is ${score} point(s)`);	
+    if (gender == "male"){
+        alert(`Mr. ${firstName} ${lastName} Your total score is ${score} point(s)`);
+    }; else if (gender == "female"){
+        alert(`Ms. ${firstName} ${lastName} Your total score is ${score} point(s)`);
+    };
 </script>
 </body>
 </html>
