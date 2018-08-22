@@ -24,7 +24,7 @@
 
 function realGame(){
 alert("Are you ready for the tricky riddles");
-// alert("please let all your answers be in lowercase, thank you");
+alert("please let all your answers be in lowercase, thank you");
 let firstName = prompt("What is your first name");
 let lastName = prompt("What is your last name");
 let gender = prompt("what is your gender? male or female");
@@ -63,7 +63,7 @@ const quiz = [
         };
         
         function check(response, answer){
-            if(response.toLocaleLowerCase === answer.toLocaleLowerCase){
+            if(response === answer){
                 alert("You are correct!");
                 score++;
                   } else {
