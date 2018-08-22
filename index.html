@@ -2,10 +2,27 @@
 <html>
 <head>
 	<title></title>
+    <style type="text/css">
+        * {
+            background: linear-gradient(90deg, purple, orange);
+            text-align: center;
+            color: black;
+        };
+    
+        /* .header {
+            text-align: center;
+            color: red;
+        }; */
+        
+        
+    
+    </style>
 </head>
 <body>
 
 <script type="text/javascript">
+
+function realGame(){
 alert("Are you ready for the tricky riddles");
 alert("please let all your answers be in lowercase, thank you");
 let firstName = prompt("What is your first name");
@@ -16,83 +33,54 @@ alert(`You are welcome Mr. ${firstName} ${lastName}, here are the riddles`);
     }else {
         alert(`You are welcome Ms. ${firstName} ${lastName}, here are the riddles`);
     }; 
-let score = 0;
-// for (let i = 0; i < 11; i++){
-let Question1 = prompt("What kind of storm is always in a rush?");
-	if (Question1 == "hurricane"){
-      alert("You are correct!")
-      score += 1;
-    } else {
-      alert("Sorry, that's wrong, the answer is: hurricane");
+    
+const quiz = [
+    ["What kind of storm is always in a rush?", "hurricane"],
+    ["What is a duck’s favorite snack?", "quackers"],
+    ["What’s the difference between a well dressed man on a bicycle and a poorly dressed man on a unicycle?", "attire"],
+    ["What moves without seeing and cries without eyes?", "cloud"],
+    ["If I stand on top of a hill and ring a loud bell between two houses. Which house will hear the bell first? Neither or both or either?", "neither"],
+    ["What is the tree that we all carry in our hand?", "palm"],
+    ["How do you spell hard water with only three letters?", "ice"],
+    ["I exist in life but not in death. You can’t have fun without me. What am I?", "f"],
+    ["Say my name and I am no more. What am I?","silence"],
+    ["What pulls you down and never lets go?", "gravity"]
+];
+    function start(quiz){
+        let score = 0;
+        // main game loop
+        for (const [question, answer] of quiz){
+            const response = ask(question);
+            check(response, answer);
+        };
+        //end of main game loop
+             
+        gameOver();
+        //function declarations
+        
+        function ask(question){
+            return prompt(question);
+        };
+        
+        function check(response, answer){
+            if(response === answer){
+                alert("You are correct!");
+                score++;
+                  } else {
+                        alert(`Wrong! The correct answer is ${answer}`);
+                    };  
+        };
+        
+        function gameOver(){
+            alert(`Game over, your score is ${score}/10`);
+        };
     };
-  let Question2 = prompt("What is a duck’s favorite snack?");
-	if (Question2 == "quackers"){
-      alert("You are correct!")
-      score += 1;
-    } else {
-      alert("Sorry, that's wrong, the answer is: quackers");
-    };
-  let Question3 = prompt("What’s the difference between a well dressed man on a bicycle and a poorly dressed man on a unicycle?");
-	if (Question3 == "attire"){
-      alert("You are correct!")
-      score += 1;
-    } else {
-      alert("Sorry, that's wrong, the answer is: attire");
-    };
-let Question4 = prompt("What moves without seeing and cries without eyes?");
-	if (Question4 == "cloud"){
-      alert("You are correct!")
-      score += 1;
-    } else {
-      alert("Sorry, that's wrong, the answer is: cloud");
-    };
-let Question5 = prompt("If I stand on top of a hill and ring a loud bell between two houses. Which house will hear the bell first? Neither or both or either?");
-	if (Question5 == "neither"){
-      alert("You are correct!")
-      score += 1;
-    } else {
-      alert("Sorry, that's wrong, the answer is: neither; houses don’t have ears can’t hear");
-    };
-let Question6 = prompt("What is the tree that we all carry in our hand?");
-	if (Question6 == "palm"){
-      alert("You are correct!")
-      score += 1;
-    } else {
-      alert("Sorry, that's wrong, the answer is: palm");
-    };
-let Question7 = prompt("How do you spell hard water with only three letters?");
-	if (Question7 == "ice"){
-      alert("You are correct!")
-      score += 1;
-    } else {
-      alert("Sorry, that's wrong, the answer is: ice");
-    };
-let Question8 = prompt("I exist in life but not in death. You can’t have fun without me. What am I?");
-	if (Question8 == "f"){
-      alert("You are correct!")
-      score += 1;
-    } else {
-      alert("Sorry, that's wrong, the answer is: f");
-    };
-let Question9 = prompt("Say my name and I am no more. What am I?");
-	if (Question9 == "silence"){
-      alert("You are correct!")
-      score += 1;
-    } else {
-      alert("Sorry, that's wrong, the answer is: silence");
-    };
-let Question10 = prompt("What pulls you down and never lets go?");
-	if (Question10 == "gravity"){
-      alert("You are correct!")
-      score += 1;
-    } else {
-      alert("Sorry, that's wrong, the answer is: gravity");
-    };
-    if (gender == "male"){
-        alert(`Mr. ${firstName} ${lastName} Your total score is ${score} point(s)`);
-    } else if (gender == "female"){
-        alert(`Ms. ${firstName} ${lastName} Your total score is ${score} point(s)`);
-    };
+    
+    start(quiz);
+};
 </script>
+    
+    <h1 class="header">Welcome to the Quiz!</h1>
+    <button onclick="realGame()">Click here to begin!</button>
 </body>
 </html>
